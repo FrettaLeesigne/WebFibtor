@@ -3,10 +3,51 @@
 <html>
     <head>
         <title>Fibtor is gay</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <script>
+
+            $("#fibfib").hide();
+
+            $("#fib2").hide();
+            function getRandomInt(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            function fap() {
+                fibtorFapsTo = getRandomInt(0, 2);
+                what = "Himself :(";
+
+                switch(fibtorFapsTo) {
+                    case 0:
+                        what = "Tracer";
+                        break;
+
+                    case 1:
+                        what = "Waifumaker";
+                        break;
+                    case 2:
+                        $("#fib2").show();
+                        break;
+
+                }
+
+                $("#fibfib").show();
+                $("#whatToFap").text(what);
+            }
+
+
+        </script>
     </head>
 
-    <body>
-        <h1>Fibtor is truly gay</h1>
+    <body style="text-align: center">
+        <h1>Welcome to this glorious website about Fibtor Lowwwww</h1>
+        <h2>Chapter 1: Fibtor is truly gay</h2>
 
         <p>
         Fibtor is a stoned Russian gamer that only cares about sex and games, but he is bad at both.
@@ -15,7 +56,42 @@
 
         <br>
 
-        <b><i><u>Keanestar screws girls better than him</u></i></b>
+        <button onclick="fap()" class="btn btn-default">Fap to something</button>
+
+        <b id="fib2">Alyssa REJECTED HIM! He was forced to fall back unwillingly to his safety net of 20 other girls!</b>
+
+        <p id="fibfib">Fibtor has decided to fap to: <span id="whatToFap"></span></p>
+
+
         </p>
+
+        <h2>What do you think about Fibtor?</h2>
+
+        <p>
+            Comment down below.
+
+            <br>
+
+            <b><u>Note: Any PRO FIBTOR comments will be INSTANTLY DELETED from the database.</u></b>
+        </p>
+
+
+        <div class="container">
+
+            {% for comment in comments %}
+                <div class="row">
+                    {{ comment.content }}
+                </div>
+            {% endfor %}
+
+            <div class="row">
+                <form action="." method="POST">
+                    <textarea class="form-control" name="contents" placeholder="Enter a comment"></textarea>
+                    <br>
+                    <input type="submit" class="btn btn-default" value="Post comment">
+                </form>
+            </div>
+
+        </div>
     </body>
 </html>
